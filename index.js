@@ -2,8 +2,8 @@ import express from "express";
 import path from "path";
 import staticroute from "./router/static.js";
 import connectDB from "./config/connectDb.js";
-import route from "./router/routeuser.js";
-
+import routeuser from "./router/routeuser.js";
+import routeurl from "./router/routeurl.js";
 
 const app = express();
 const PORT = 3000;
@@ -17,13 +17,15 @@ app.set("view engine", "ejs");
 app.set("views", path.join("./", "views"));
 
 app.use("/",staticroute)
-app.use('/',route)
+//login and signup 
+app.use('/',routeuser)    
+//url create 
+app.use("/",routeurl)
 
 
 
 
 
 
-
-app.listen(process.env.PORT || PORT, () => console.log(`Server is running at http://localhost:${process.env.PORT || PORT}`))
+app.listen(process.env.PORT || PORT, () => console.log(`Server is running at http://localhost:${process.env.PORT || PORT}/home`))
 
