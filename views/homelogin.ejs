@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    <title>Short URL Service</title>
+</head>
+<body>
+    <h1>Welcome to the Short URL Service!</h1>
+    <!-- <p>Log in or sign up to get started.</p>
+    <a href="/login">Login</a>
+    <a href="/signup">Sign Up</a> -->
+
+    <!-- Input field for pasting URL -->
+    <input type="text" id="urlInput" placeholder="Paste your URL here">
+
+    <!-- Table to display stored URLs -->
+    <table>
+        <thead>
+            <tr>
+                <th>Original URL</th>
+                <th>Short URL</th>
+                <th>Clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Add rows dynamically with JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // You can add JavaScript here to handle dynamic table rows based on user input
+        // For simplicity, the dynamic row addition is left blank in this example
+    </script>
+</body>
+</html>
