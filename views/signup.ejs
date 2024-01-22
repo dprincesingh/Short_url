@@ -81,7 +81,9 @@
 
             <button type="submit">Signup</button>
         </form>
-
+        <% if (locals.user) { %>
+            <h2>User created : <%= user.name %></h2>
+          <% } %>
         <div class="home-link">
             <a href="/home">Home Page</a>
         </div>

@@ -10,9 +10,13 @@ async function handlecreateUser(req, resp) {
       password,
     });
     console.log({ Usercreated: true, user });
-    resp.redirect("/login");
+
+
+    resp.render("signup",{
+      user
+    });
   } catch (error) {
-    console.error(error);
+    console.error({messege:error});
     resp.redirect("/signup");
   }
 }

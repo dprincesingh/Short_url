@@ -1,9 +1,10 @@
 import express from "express"
-import { handlecreateUrl } from "../controller/urls.js"
+import { handlecreateUrl, handleshorturl } from "../controller/urls.js"
 
 const routeurl = express.Router()
 
-routeurl.post("/homelogin",handlecreateUrl)
+routeurl.post("/url",handlecreateUrl)
+routeurl.get("/:shorturl",handleshorturl)
 
 
 export default routeurl

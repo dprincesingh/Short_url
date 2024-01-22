@@ -1,92 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
 
-        h1 {
-            color: #333;
-        }
+      h1 {
+        color: #333;
+      }
 
-        a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            text-decoration: none;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 5px;
-        }
+      a {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        text-decoration: none;
+        background-color: #4caf50;
+        color: white;
+        border-radius: 5px;
+      }
 
-        input {
-            width: 80%;
-            padding: 10px;
-            margin: 10px;
-        }
+      input {
+        width: 80%;
+        padding: 10px;
+        margin: 10px;
+      }
 
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
+      table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+      }
 
-        table, th, td {
-            border: 1px solid #ddd;
-        }
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
 
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+      }
 
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
 
-        button:hover {
-            background-color: #2980b9;
-        }
+      button:hover {
+        background-color: #2980b9;
+      }
     </style>
     <title>Short URL Service</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Welcome to the Short URL Service!</h1>
-  
-    <form action="/homelogin" method="post">
-        <input type="text" name="url" placeholder="Paste your URL here">
 
-        <button type="submit">Create Short URL</button>
+    <form action="/url" method="post">
+      <input type="text" name="url" placeholder="Paste your URL here" />
+
+      <button type="submit">Create Short URL</button>
     </form>
 
-
     <table>
-        <thead>
-            <tr>
-                <th>Original URL</th>
-                <th>Short URL</th>
-                <th>Clicks</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Add rows dynamically with JavaScript -->
-        </tbody>
-    </table>
+      <thead>
+        <tr>
+          <th>Original URL</th>
+          <th>Short URL</th>
+          <th>Clicks</th>
+        </tr>
+      </thead>
+      <tbody>
+     
+            <% if (locals.result) { %>
+                <% result.forEach(url => { %>
+                    <tr>
 
-  
-</body>
+                        <td><a href="<%= url.url %>" target="_blank"><%= url.url %></a></td>
+                        <td><a href="<%= url.shorturl %>" target="_blank"><%= url.shorturl %></a></td>
+                        <td><%= url.visitlog.length %></td>
+                    </tr>
+                <% }) %>
+            <% } %>
+
+        
+      </tbody>
+    </table>
+ 
+  </body>
 </html>

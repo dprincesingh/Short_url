@@ -7,7 +7,8 @@ const urlschema = new mongoose.Schema({
     },
     shorturl:{
         type: String,
-        required : true 
+        required : true ,
+        unique:true
     },
     visitlog:[{timestamps:{type:Number}}]
 },{timestamps:true})

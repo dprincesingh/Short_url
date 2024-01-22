@@ -1,4 +1,5 @@
 import express from "express";
+import urls from "../models/url.js";
 
 const staticroute = express.Router()
 
@@ -14,8 +15,11 @@ staticroute.get('/login',(req,resp)=>{
     resp.render('login')
 })
 
-staticroute.get('/homelogin',(req,resp)=>{
-    resp.render('homelogin')
+staticroute.get('/homelogin',async (req,resp)=>{
+    const result = await urls.find({})
+    console.log(result);
+    
+    resp.render('homelogin',{result})
 })
 
 
