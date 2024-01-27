@@ -10,7 +10,10 @@ const urlschema = new mongoose.Schema({
         required : true ,
         unique:true
     },
-    visitlog:[{timestamps:{type:Number}}]
+    visitlog:[{timestamps:{type:Number}}],
+    cretedby : {
+        type:mongoose.Schema.Types.ObjectId,ref: "users"
+    }
 },{timestamps:true})
 
 

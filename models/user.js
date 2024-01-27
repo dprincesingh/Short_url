@@ -3,6 +3,7 @@ import { type } from "os";
 
 
 const userschema = new mongoose.Schema({
+  
     name:{
         type :String,
         required: true,

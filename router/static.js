@@ -16,9 +16,12 @@ staticroute.get('/login',(req,resp)=>{
 })
 
 staticroute.get('/homelogin',async (req,resp)=>{
-    const result = await urls.find({})
-    console.log(result);
-    
+    if(!req.user) return resp.redirect('/login')
+
+    const result = await urls.find({cretedby:req.user._id})
+   
+
+
     resp.render('homelogin',{result})
 })
 

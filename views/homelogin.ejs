@@ -85,21 +85,22 @@
         </tr>
       </thead>
       <tbody>
-     
-            <% if (locals.result) { %>
-                <% result.forEach(url => { %>
-                    <tr>
-
-                        <td><a href="<%= url.url %>" target="_blank"><%= url.url %></a></td>
-                        <td><a href="<%= url.shorturl %>" target="_blank"><%= url.shorturl %></a></td>
-                        <td><%= url.visitlog.length %></td>
-                    </tr>
-                <% }) %>
-            <% } %>
-
-        
+        <% if (locals.result) { %> <% result.forEach(url => { %>
+        <tr>
+          <td>
+            <a href="<%= url.url %>" target="_blank"
+              ><%= url.url.split("").slice(0,30).join("") %></a
+            >
+          </td>
+          <td>
+            <a href="<%= url.shorturl %>" target="_blank"
+              ><%= url.shorturl %></a
+            >
+          </td>
+          <td><%= url.visitlog.length %></td>
+        </tr>
+        <% }) %> <% } %>
       </tbody>
     </table>
- 
   </body>
 </html>
